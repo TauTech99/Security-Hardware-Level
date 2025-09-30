@@ -202,3 +202,67 @@ Encryption, secure boot, key management
 - **ThinkPenguin** - Privacy-focused hardware
 
 ---
+
+# Intel ME y AMD PSP
+
+## 🔹 ¿Qué son Intel ME y AMD PSP?
+**Intel ME (Management Engine)** y **AMD PSP (Platform Security Processor)** son coprocesadores ocultos que vienen dentro de todos los procesadores modernos.
+
+Funcionan como un “sistema operativo paralelo” que corre aunque apagues la PC, mientras tenga corriente (batería o enchufe).
+
+Tienen acceso directo a **memoria, red y hardware** → lo que significa que, si se explotan, un atacante podría controlarte la computadora sin que te enteres.
+
+---
+
+## 🔹 ¿Por qué son peligrosos?
+- **Código cerrado** → no se sabe exactamente qué hacen, solo el fabricante.
+- **Acceso total** → pueden leer memoria, espiar tráfico, modificar datos.
+- **Persistencia** → siguen activos aunque apagues o reinstales el sistema operativo.
+- **Vulnerabilidades conocidas** → ya se descubrieron exploits en Intel ME y AMD PSP que permitieron acceso remoto sin usuario.
+
+👉 En resumen: es como tener una **“puerta trasera” integrada al CPU**.
+
+---
+
+## 🔹 ¿Cómo saber cuál tenés en tu PC?
+- Si es procesador **Intel (Core i3, i5, i7, i9 desde 2008)** → seguro tiene **Intel ME**.
+- Si es procesador **AMD (Ryzen, EPYC, Athlon modernos)** → trae **AMD PSP**.
+
+### Comando rápido en Linux:
+```bash
+sudo lspci | grep -i management
+```
+- Si ves algo como **Intel Corporation Management Engine Interface** → tenés Intel ME.
+- Si ves **AMD PSP** → tenés AMD PSP.
+
+---
+
+## 🔹 Alternativas para mayor seguridad
+
+### 1. **Deshabilitar o limitar**
+- En algunos BIOS/UEFI se pueden desactivar funciones del ME/PSP (ej. AMT, remote management).
+- Con proyectos como **me_cleaner** es posible neutralizar parte del Intel ME en ciertos modelos (no siempre al 100%).
+
+### 2. **Firmware libre**
+- Usar **Coreboot** o **Libreboot** para reemplazar el BIOS propietario.
+- Muy utilizado en **ThinkPads antiguos** (ej. X200, T400, X220, T420) donde se puede desactivar casi todo el ME.
+
+### 3. **Hardware abierto y auditable**
+- **Raptor Talos II / Blackbird (POWER9)** → 100% auditable, sin Intel ME ni AMD PSP.
+- **MNT Reform (ARM abierto)** → portátil con diseño de hardware libre.
+- Algunos **Chromebooks con Coreboot** permiten neutralización parcial del ME.
+
+---
+
+## 🔹 Resumen práctico
+- Si tenés Intel o AMD moderno → ya tenés ME/PSP sí o sí.
+- Si buscás seguridad extrema → solo hardware libre/auditable (POWER9, ARM abierto).
+- Alternativa intermedia y accesible → **ThinkPads viejas con Libreboot** y ME neutralizado.
+
+👉 Lo más importante en hardware moderno: **mantener BIOS/firmware actualizado** y desactivar todas las opciones de gestión remota que permita tu equipo.
+
+---
+
+## Nota de seguridad
+Este README ofrece información general. Acciones como usar `me_cleaner`, flashear firmware o reemplazar BIOS/UEFI implican riesgos (posible brickeo del equipo). Si no estás seguro, informate bien y considera hacer respaldo y usar un programador SPI para recuperación.
+
