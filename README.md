@@ -266,5 +266,5 @@ sudo lspci | grep -i management
 ## Nota de seguridad
 Este README ofrece información general. Acciones como usar `me_cleaner`, flashear firmware o reemplazar BIOS/UEFI implican riesgos (posible brickeo del equipo). Si no estás seguro, informate bien y considera hacer respaldo y usar un programador SPI para recuperación.
 
-### https://discuss.privacyguides.net/t/how-can-i-have-a-computer-without-intel-me/14803
-### https://www.reddit.com/r/privacy/comments/1i1i2hw/most_recent_powerful_cpu_without_intel_me_amd_psp/
+# https://discuss.privacyguides.net/t/how-can-i-have-a-computer-without-intel-me/14803
+# https://www.reddit.com/r/privacy/comments/1i1i2hw/most_recent_powerful_cpu_without_intel_me_amd_psp/
